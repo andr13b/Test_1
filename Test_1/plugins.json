@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    {
+      "Type": "Type_1",
+      "Content": "Content_1"
+    },
+    {
+      "Type": "Type_2",
+      "Content": "Content_2"
+    }
+  ]
+}

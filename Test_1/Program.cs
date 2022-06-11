@@ -1,6 +1,12 @@
+using Test_1.Models;
 using Test_1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile(
+    "plugins.json",
+    optional: true,
+    reloadOnChange: true);
 
 // factory creation
 builder.Services
