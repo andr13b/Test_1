@@ -6,6 +6,7 @@ namespace Test_1.Services;
 public class PictureEditorService : IPictureEditorService
 {
     private const int FakeEditDelay = 1500;
+    
     private PluginsModel _pluginsModel;
 
     public PictureEditorService(IConfiguration configuration)
@@ -33,5 +34,10 @@ public class PictureEditorService : IPictureEditorService
         }
 
         return imageData;
+    }
+
+    public async Task<PluginsModel> GetPlugins()
+    {
+        return _pluginsModel;
     }
 }

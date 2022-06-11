@@ -11,7 +11,7 @@ public class PictureEditorController : ControllerBase
     private readonly Func<IPictureEditorService> _pictureEditorServiceFactory;
 
     private readonly ILogger<PictureEditorController> _logger;
-
+    
     private const string FailedTask = "Failed task";
 
     public PictureEditorController(
@@ -22,7 +22,14 @@ public class PictureEditorController : ControllerBase
         _pictureEditorServiceFactory = pictureEditorServiceFactory;
     }
 
-    [HttpGet(Name = "EditPicture")]
+    [HttpGet("get-plugin-list")]
+    public async Task<PluginsModel> GetPluginList()
+    {
+        var plugins = await _pictureEditorServiceFactory().GetPlugins();
+        return plugins;
+    }
+
+    [HttpGet("edit-picture")]
     public async Task<string> EditPicture(string pictureData, List<PictureModifierData> modifiers)
     {
         try
